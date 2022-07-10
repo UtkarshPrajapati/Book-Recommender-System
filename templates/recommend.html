@@ -21,11 +21,42 @@
     .card {
         --bs-card-bg: black;
     }
+
+    input[type=text] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+        background-color: #45a049;
+    }
+
+    div[class=col-md-12] {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
 </style>
 
 <body style="background-color: black">
     <nav class="navbar" style="background-color: #00a65a">
-        <p class="nav navbar-brand">  My Book Recommender</p>
+        <p class="nav navbar-brand"> My Book Recommender</p>
         <ul class="nav nav-tabs">
             <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
             <li class="nav-item"><a class="nav-link active" href="/recommend">Recommend</a></li>
@@ -57,7 +88,7 @@
             {% endfor %}
             {% endif %}
 
-            
+
 
 
         </div>
