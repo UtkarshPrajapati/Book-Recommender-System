@@ -11,12 +11,15 @@
 </head>
 <style>
     @import url('http://fonts.cdnfonts.com/css/product-sans');
-    html *{
-        font-family: 'Product Sans', sans-serif !important;                                  
+
+    html * {
+        font-family: 'Product Sans', sans-serif !important;
     }
+
     img {
         border-radius: 5%;
     }
+
     p {
         margin-left: 30px;
         color: white;
@@ -69,9 +72,11 @@
         color: white;
         padding-top: 30px;
     }
+
     h2 {
         color: white;
     }
+
     h4 {
         color: white;
     }
@@ -88,23 +93,24 @@
     </nav>
     <div class="container">
         <div class="row">
-            <h1 class="text-white" style="font-size: 50px">Recommend Books</h1>
+            <h1 class="text-white" style="font-size: 50px">Recommend Books by Machine Learning</h1>
             <div class="col-md-12">
                 <form action="/recommend_books" method="post">
-                    <input name="user_input" type="text" class="form-control" placeholder="Enter Book Name (Default is The Da Vinci Code)">
+                    <input name="user_input" type="text" class="form-control"
+                        placeholder="Enter Book Name (Default is The Da Vinci Code)">
                     <br>
                     <input type="submit" class="btn btn-lg btn-warning">
                 </form>
             </div>
 
             {%if data%}
-                {% if user_input != None %}
-                    <h1>{{user_input}}</h1>
-                {% else %}
-                    {% set x=request.form.get("user_input")%}
-                    {% set user_input= x if x!="" else "The Da Vinci Code" %}
-                        <h1>{{user_input}}</h1>
-                {% endif %}
+            {% if user_input != None %}
+            <h1>{{user_input}}</h1>
+            {% else %}
+            {% set x=request.form.get("user_input")%}
+            {% set user_input= x if x!="" else "The Da Vinci Code" %}
+            <h1>{{user_input}}</h1>
+            {% endif %}
             {% for i in data%}
             <div class="col-md-3" style="margin-top: 50px">
                 <div class="card">

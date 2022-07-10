@@ -40,6 +40,21 @@
     h1 {
         padding: 30px;
     }
+
+    input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+        background-color: #45a049;
+    }
 </style>
 
 <body style="background-color: #222222">
@@ -62,8 +77,9 @@
                 <div class="card">
                     <div class="card-body">
                         <img class="card-img-top" src="{{image[i]}}">
-                        <form  action="/recommend_books1" method="post">
-                            <input type="submit" id={{i}} name={{i}} class="text-white" value="Get Similar Book"/>
+                        <form action="/recommend_books1" method="post">
+                            <input type="submit" id={{i}} name={{i}} class="btn btn-lg btn-warning"
+                                value="Get Similar Book" />
                         </form>
                         <h2 class="text-white">{{book_name[i]}}</h2>
                         <h4 class="text-white">{{author[i]}}</h4>

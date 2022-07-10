@@ -1,4 +1,4 @@
-from flask import Flask, render_template,request
+from flask import Flask, render_template, request
 import pickle
 import numpy as np
 popular_df = pickle.load(open("popular.pkl", "rb"))
@@ -23,45 +23,57 @@ def index():
 def recommend_ui():
     return render_template("recommend.html")
 
-@app.route("/recommend_books",methods=["post"])
-def recommend():
-    x=request.form.get("user_input")
-    user_input= x if x!="" else "The Da Vinci Code"
-    index=np.where(pt.index== user_input)[0][0]
-    distances=similarity_score[index]
-    similar_items=sorted(list(enumerate(distances)),key=lambda x:x[1],reverse=True)[1:6]
-    data=[]
-    for i in similar_items:
-        item=[]
-        temp_df=books[books["Book-Title"]==pt.index[i[0]]]
-        item.extend(list(temp_df.drop_duplicates("Book-Title")["Book-Title"].values))
-        item.extend(list(temp_df.drop_duplicates("Book-Title")["Book-Author"].values))
-        item.extend(list(temp_df.drop_duplicates("Book-Title")["Image-URL-M"].values))
-        data.append(item)
-    return render_template("recommend.html",data=data)
 
-@app.route("/recommend_books1",methods=["post"])
+@app.route("/recommend_books", methods=["post"])
+def recommend():
+    x = request.form.get("user_input")
+    user_input = x if x != "" else "The Da Vinci Code"
+    index = np.where(pt.index == user_input)[0][0]
+    distances = similarity_score[index]
+    similar_items = sorted(list(enumerate(distances)),
+                           key=lambda x: x[1], reverse=True)[1:9]
+    data = []
+    for i in similar_items:
+        item = []
+        temp_df = books[books["Book-Title"] == pt.index[i[0]]]
+        item.extend(list(temp_df.drop_duplicates(
+            "Book-Title")["Book-Title"].values))
+        item.extend(list(temp_df.drop_duplicates(
+            "Book-Title")["Book-Author"].values))
+        item.extend(list(temp_df.drop_duplicates(
+            "Book-Title")["Image-URL-M"].values))
+        data.append(item)
+    return render_template("recommend.html", data=data)
+
+
+@app.route("/recommend_books1", methods=["post"])
 def recommend1():
-    book_name=list(popular_df["Book-Title"].values)
+    book_name = list(popular_df["Book-Title"].values)
     for key in request.form:
         id = key
-    user_input= book_name[int(id)]
-    index=np.where(pt.index== user_input)[0][0]
-    distances=similarity_score[index]
-    similar_items=sorted(list(enumerate(distances)),key=lambda x:x[1],reverse=True)[1:6]
-    data=[]
+    user_input = book_name[int(id)]
+    index = np.where(pt.index == user_input)[0][0]
+    distances = similarity_score[index]
+    similar_items = sorted(list(enumerate(distances)),
+                           key=lambda x: x[1], reverse=True)[1:9]
+    data = []
     for i in similar_items:
-        item=[]
-        temp_df=books[books["Book-Title"]==pt.index[i[0]]]
-        item.extend(list(temp_df.drop_duplicates("Book-Title")["Book-Title"].values))
-        item.extend(list(temp_df.drop_duplicates("Book-Title")["Book-Author"].values))
-        item.extend(list(temp_df.drop_duplicates("Book-Title")["Image-URL-M"].values))
+        item = []
+        temp_df = books[books["Book-Title"] == pt.index[i[0]]]
+        item.extend(list(temp_df.drop_duplicates(
+            "Book-Title")["Book-Title"].values))
+        item.extend(list(temp_df.drop_duplicates(
+            "Book-Title")["Book-Author"].values))
+        item.extend(list(temp_df.drop_duplicates(
+            "Book-Title")["Image-URL-M"].values))
         data.append(item)
-    return render_template("recommend.html",data=data,user_input=user_input)
+    return render_template("recommend.html", data=data, user_input=user_input)
+
 
 @app.route("/about")
 def contact_ui():
     return render_template("about.html")
+
 
 if __name__ == "__main__":
     app.run()
