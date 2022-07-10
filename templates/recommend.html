@@ -13,6 +13,7 @@
     p {
         margin-left: 30px;
     }
+
     .text-white {
         color: white;
     }
@@ -55,6 +56,11 @@
         background-color: #f2f2f2;
         padding: 20px;
     }
+
+    h1 {
+        text-align: center;
+        margin: 20px;
+    }
 </style>
 
 <body style="background-color: black">
@@ -82,9 +88,11 @@
             <div class="col-md-3" style="margin-top: 50px">
                 <div class="card">
                     <div class="card-body">
-                        <img class="card-img-top" src="{{i[2]}}">
-                        <h2 class="text-white">{{i[0]}}</h2>
-                        <h4 class="text-white">{{i[1]}}</h4>
+                        <img class="card-img-top" src="{{i[2]}}" alt="{{i[0]}}" style="width:100%">
+                        <div class="card-body">
+                            <h2 class="card-title">{{i[0]}}</h2>
+                            <h4 class="card-text">{{i[1]}}</h4>
+                        </div>
                     </div>
                 </div>
             </div>

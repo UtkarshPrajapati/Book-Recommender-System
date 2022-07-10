@@ -21,6 +21,7 @@
     .card {
         --bs-card-bg: black;
     }
+
     p {
         margin-left: 30px;
     }
@@ -29,7 +30,7 @@
 <body style="background-color: black">
     <nav class="navbar" style="background-color: #00a65a">
         <p class="nav navbar-brand">My Book Recommender</p>
-        <ul class="nav nav-tabs">
+        <ul class="nav nav-pills">
             <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="/recommend">Recommend</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
@@ -49,7 +50,7 @@
                         <h2 class="text-white">{{book_name[i]}}</h2>
                         <h4 class="text-white">{{author[i]}}</h4>
                         <h4 class="text-white">Votes - {{votes[i]}}</h4>
-                        <h4 class="text-white">Rating - {{rating[i]}}</h4>
+                        <h4 class="text-white">Rating - {{rating[i]|round(2)}}</h4>
                     </div>
                 </div>
             </div>
