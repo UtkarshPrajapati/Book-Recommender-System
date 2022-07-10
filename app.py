@@ -40,9 +40,9 @@ def recommend():
         data.append(item)
     return render_template("recommend.html",data=data)
 
-@app.route("/contact")
+@app.route("/about")
 def contact_ui():
-    return render_template("contact.html")
+    return render_template("about.html")
 
 if __name__ == "__main__":
     app.run()
