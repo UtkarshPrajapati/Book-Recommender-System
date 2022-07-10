@@ -66,7 +66,7 @@
 <body style="background-color: black">
     <nav class="navbar" style="background-color: #00a65a">
         <p class="nav navbar-brand"> My Book Recommender</p>
-        <ul class="nav nav-tabs">
+        <ul class="nav nav-pills">
             <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
             <li class="nav-item"><a class="nav-link active" href="/recommend">Recommend</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
@@ -77,13 +77,16 @@
             <h1 class="text-white" style="font-size: 50px">Recommend Books</h1>
             <div class="col-md-12">
                 <form action="/recommend_books" method="post">
-                    <input name="user_input" type="text" class="form-control">
+                    <input name="user_input" type="text" class="form-control" placeholder="Enter Book Name (Default is The Da Vinci Code)">
                     <br>
                     <input type="submit" class="btn btn-lg btn-warning">
                 </form>
             </div>
 
             {%if data%}
+            {% set x=request.form.get("user_input") %}
+            {% set user_input= x if x is not "" else "The Da Vinci Code" %}
+            <h2>{{user_input}}</h2>
             {% for i in data%}
             <div class="col-md-3" style="margin-top: 50px">
                 <div class="card">

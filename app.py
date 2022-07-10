@@ -25,7 +25,8 @@ def recommend_ui():
 
 @app.route("/recommend_books",methods=["post"])
 def recommend():
-    user_input=request.form.get("user_input")
+    x=request.form.get("user_input")
+    user_input= x if x!="" else "The Da Vinci Code"
     index=np.where(pt.index== user_input)[0][0]
     distances=similarity_score[index]
     similar_items=sorted(list(enumerate(distances)),key=lambda x:x[1],reverse=True)[1:6]
