@@ -10,8 +10,12 @@
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
 </head>
 <style>
+    img {
+        border-radius: 5%;
+    }
     p {
-        margin-left: 30px;
+        margin: 30px;
+        color: white;
     }
 
     .text-white {
@@ -59,7 +63,14 @@
 
     h1 {
         text-align: center;
-        margin: 20px;
+        margin: 30px;
+        color: white;
+    }
+    h2 {
+        color: white;
+    }
+    h4 {
+        color: white;
     }
 </style>
 
@@ -86,7 +97,7 @@
             {%if data%}
             {% set x=request.form.get("user_input") %}
             {% set user_input= x if x!="" else "The Da Vinci Code" %}
-            <h2>{{user_input}}</h2>
+            <h1>{{user_input}}</h1>
             {% for i in data%}
             <div class="col-md-3" style="margin-top: 50px">
                 <div class="card">
