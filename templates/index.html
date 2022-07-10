@@ -62,6 +62,9 @@
                 <div class="card">
                     <div class="card-body">
                         <img class="card-img-top" src="{{image[i]}}">
+                        <form  action="/recommend_books1" method="post">
+                            <input type="submit" id={{i}} name={{i}} class="text-white" value="Get Similar Book"/>
+                        </form>
                         <h2 class="text-white">{{book_name[i]}}</h2>
                         <h4 class="text-white">{{author[i]}}</h4>
                         <h4 class="text-white">Votes - {{votes[i]}}</h4>

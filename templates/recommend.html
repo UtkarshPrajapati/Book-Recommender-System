@@ -98,9 +98,13 @@
             </div>
 
             {%if data%}
-            {% set x=request.form.get("user_input") %}
-            {% set user_input= x if x!="" else "The Da Vinci Code" %}
-            <h1>{{user_input}}</h1>
+                {% if user_input != None %}
+                    <h1>{{user_input}}</h1>
+                {% else %}
+                    {% set x=request.form.get("user_input")%}
+                    {% set user_input= x if x!="" else "The Da Vinci Code" %}
+                        <h1>{{user_input}}</h1>
+                {% endif %}
             {% for i in data%}
             <div class="col-md-3" style="margin-top: 50px">
                 <div class="card">
