@@ -85,7 +85,7 @@
 
             {%if data%}
             {% set x=request.form.get("user_input") %}
-            {% set user_input= x if x is not "" else "The Da Vinci Code" %}
+            {% set user_input= x if x!="" else "The Da Vinci Code" %}
             <h2>{{user_input}}</h2>
             {% for i in data%}
             <div class="col-md-3" style="margin-top: 50px">
