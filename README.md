@@ -15,6 +15,9 @@ Libraries used are:
   * Pickle
 * For Web Development:
   * Flask
+  * Bootstrap
+* For Integrating ML Model to WebApp:
+  * Jinja2 Templating Engine
 
 IDE Used:
  * Jupyter Notebook for Exploratory Data Analysis (EDA)
@@ -25,3 +28,7 @@ Recommendation System Type Used:
 * Collaborative Filtering Based
 
 Server Used for Deployement: Gunicorn
+
+CDN Provider for Images:
+* Amazon Images
+* Weserv.nl
