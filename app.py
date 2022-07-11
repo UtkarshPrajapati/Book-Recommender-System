@@ -15,9 +15,9 @@ def index():
                            author=list(popular_df["Book-Author"].values),
                            rating=list(popular_df["avg-ratings"].values),
                            votes=list(popular_df["num-ratings"].values),
-                           image=list(map(lambda x: x.replace('http', 'https'), list(
-                               popular_df["Image-URL-L"].values)))
-                           )
+                           image=list(popular_df["Image-URL-L"].values)
+    )
+                           
 
 
 @app.route("/recommend")
