@@ -23,3 +23,5 @@ IDE Used:
 Recommendation System Type Used:
 * Popularity Based
 * Collaborative Filtering Based
+
+Server Used for Deployement: Gunicorn
