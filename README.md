@@ -19,3 +19,7 @@ Libraries used are:
 IDE Used:
  * Jupyter Notebook for Exploratory Data Analysis (EDA)
  * VS Code for developing Flask Web App
+
+Recommendation System Type Used:
+* Popularity Based
+* Collaborative Filtering Based
