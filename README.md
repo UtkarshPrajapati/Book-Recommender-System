@@ -4,8 +4,8 @@ Book Recommender Engine made with Python for Training Machine Learning Model & F
 It is made by using DataBase of 271360 Books & 1149780 ratings of 278858 users.
 
 Algorithms used are:
-* K-Nearest Neighbour (KNN)
-* Cosine Similarity
+* K-Nearest Neighbour (KNN) to create Pivot Table of Users & Books Relationship
+* Cosine Similarity is used to calculate the similarity between the Books
 
 Libraries used are:
 * For Training Model:
