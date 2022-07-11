@@ -21,12 +21,13 @@ def index():
 
 @app.route("/recommend")
 def recommend_ui():
-    return render_template("recommend.html")
+    return render_template("recommend.html",book_name=list(popular_df["Book-Title"].values))
 
 
 @app.route("/recommend_books", methods=["post"])
 def recommend():
-    x = request.form.get("user_input")
+    y = request.form.get("user_input")
+    x= y if y in list(popular_df["Book-Title"].values) else "The Da Vinci Code"
     user_input = x if x != "" else "The Da Vinci Code"
     index = np.where(pt.index == user_input)[0][0]
     distances = similarity_score[index]
@@ -43,7 +44,7 @@ def recommend():
         item.extend(list(temp_df.drop_duplicates(
             "Book-Title")["Image-URL-M"].values))
         data.append(item)
-    return render_template("recommend.html", data=data)
+    return render_template("recommend.html", data=data,user_input=user_input,book_name=list(popular_df["Book-Title"].values))
 
 
 @app.route("/recommend_books1", methods=["post"])
@@ -67,7 +68,7 @@ def recommend1():
         item.extend(list(temp_df.drop_duplicates(
             "Book-Title")["Image-URL-M"].values))
         data.append(item)
-    return render_template("recommend.html", data=data, user_input=user_input)
+    return render_template("recommend.html", data=data, user_input=user_input,book_name=list(popular_df["Book-Title"].values))
 
 
 @app.route("/about")

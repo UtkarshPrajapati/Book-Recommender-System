@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
     <title>Book Recommender System</title>
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -97,8 +97,13 @@
             <h1 class="text-white" style="font-size: 50px">Recommend Books by Machine Learning</h1>
             <div class="col-md-12">
                 <form action="/recommend_books" method="post">
-                    <input name="user_input" type="text" class="form-control"
+                    <input list="books" name="user_input" type="text" class="form-control"
                         placeholder="Enter Book Name (Default is The Da Vinci Code)">
+                    <datalist id="books">
+                        {% for i in range(book_name|length) %}
+                        <option value="{{book_name[i]}}"></option>
+                        {% endfor %}
+                    </datalist>
                     <br>
                     <input type="submit" class="btn btn-lg btn-warning">
                 </form>
