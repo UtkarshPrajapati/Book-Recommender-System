@@ -4,7 +4,7 @@ Book Recommender Engine made with Python for Training Machine Learning Model & F
 
 It is made by using DataBase of 271360 Books & 1149780 ratings of 278858 users.
 
-Website Link: [Book Recommender](https://bookrecommend-rn0z.onrender.com/)
+Website Link: [Book Recommender](https://book-recommender-system-gules.vercel.app/)
 
 Algorithms used are:
 * K-Nearest Neighbour (KNN) to create Pivot Table of Users & Books Relationship
